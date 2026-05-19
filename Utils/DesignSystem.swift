@@ -7,37 +7,59 @@
 
 import SwiftUI
 
+// MARK: - Hex Color Support
+extension Color {
+    init(hex: String) {
+        let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
+        var int: UInt64 = 0
+        Scanner(string: hex).scanHexInt64(&int)
+        let a, r, g, b: UInt64
+        switch hex.count {
+        case 6:
+            (a, r, g, b) = (255, (int >> 16) & 0xFF, (int >> 8) & 0xFF, int & 0xFF)
+        case 8:
+            (a, r, g, b) = ((int >> 24) & 0xFF, (int >> 16) & 0xFF, (int >> 8) & 0xFF, int & 0xFF)
+        default:
+            (a, r, g, b) = (255, 0, 0, 0)
+        }
+        self.init(.sRGB, red: Double(r) / 255, green: Double(g) / 255, blue: Double(b) / 255, opacity: Double(a) / 255)
+    }
+}
+
 // MARK: - Colors
 extension Color {
     // Primary
-    static let primaryBlue = Color("#2563EB")
-    static let secondaryBlue = Color("#3B82F6")
-    static let accentGreen = Color("#059669")
-    
+    static let primaryBlue = Color(hex: "2563EB")
+    static let secondaryBlue = Color(hex: "3B82F6")
+    static let accentGreen = Color(hex: "059669")
+
     // Background
-    static let background = Color("#F8FAFC")
-    static let mutedBackground = Color("#F1F5FD")
-    
+    static let background = Color(hex: "F8FAFC")
+    static let mutedBackground = Color(hex: "F1F5FD")
+
     // Text
-    static let foreground = Color("#0F172A")
-    static let mutedText = Color("#64748B")
-    
+    static let foreground = Color(hex: "0F172A")
+    static let mutedText = Color(hex: "64748B")
+
     // Border
-    static let border = Color("#E4ECFC")
-    
+    static let border = Color(hex: "E4ECFC")
+
     // Destructive
-    static let destructive = Color("#DC2626")
+    static let destructive = Color(hex: "DC2626")
 }
 
 // MARK: - Layout
 enum Layout {
+    static let spacing2: CGFloat = 2
     static let spacing4: CGFloat = 4
+    static let spacing6: CGFloat = 6
     static let spacing8: CGFloat = 8
     static let spacing12: CGFloat = 12
     static let spacing16: CGFloat = 16
     static let spacing20: CGFloat = 20
     static let spacing24: CGFloat = 24
     static let spacing32: CGFloat = 32
+    static let spacing100: CGFloat = 100
     
     static let cornerRadius8: CGFloat = 8
     static let cornerRadius12: CGFloat = 12
@@ -86,7 +108,7 @@ extension View {
 // MARK: - Gradients
 enum Gradients {
     static let primary = LinearGradient(
-        colors: [Color("#2563EB"), Color("#3B82F6")],
+        colors: [Color(hex: "2563EB"), Color(hex: "3B82F6")],
         startPoint: .topLeading,
         endPoint: .bottomTrailing
     )
