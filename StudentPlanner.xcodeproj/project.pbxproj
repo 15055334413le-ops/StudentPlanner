@@ -35,11 +35,8 @@
 		D2A10011 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		D2A10012 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		D2A10013 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		D2A10014 /* Utils */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Utils; sourceTree = "<group>"; };
 		D2A10015 /* DesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystem.swift; sourceTree = "<group>"; };
 		D2A10016 /* StudentPlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudentPlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D2A10017 /* Models */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Models; sourceTree = "<group>"; };
-		D2A10018 /* Views */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Views; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,9 +58,9 @@
 				D2A10004 /* Info.plist */,
 				D2A10003 /* Assets.xcassets */,
 				D2A10009 /* Preview Assets.xcassets */,
-				D2A10017 /* Models */,
-				D2A10018 /* Views */,
-				D2A10014 /* Utils */,
+				D2A40003 /* Models */,
+				D2A40004 /* Views */,
+				D2A40005 /* Utils */,
 				D2A40002 /* Products */,
 			);
 			sourceTree = "<group>";
